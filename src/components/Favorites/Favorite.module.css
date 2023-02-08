@@ -1,0 +1,11 @@
+.button-container {
+    padding-top: 10px;
+    display: flex;
+    justify-content: center;
+}
+
+.delete-btn-div {
+   display:flex;
+   justify-content: space-between;
+   margin-bottom: 10px; 
+}

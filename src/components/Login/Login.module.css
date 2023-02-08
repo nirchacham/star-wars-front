@@ -1,0 +1,22 @@
+
+.login-container {
+    display:'flex';
+    align-items:'center';
+    justify-content:'center';
+    height:'100vh';
+}
+
+.form-container {
+    border: 2px solid white;
+    border-radius: 6px;
+    padding: 10px;
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    height: 30%;
+    justify-content: space-evenly;
+}
+
+.input-group{
+    margin-top: 10px;
+}

@@ -1,25 +1,33 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, { useState, useEffect, useCallback } from 'react';
 import './App.css';
+import Header from './components/Layout/Header';
+import Login from './components/Login/Login';
+import { useSelector } from 'react-redux';
+import { RootState } from './store';
+import MoviesSummary from './components/Movies/MoviesSummary/MoviesSummary';
+import AvailableMovies from './components/Movies/AvailableMovies/AvailableMovies';
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+  const isLoggedIn = useSelector((state:RootState)=> state.authSlice.userEmail);
+
+  const renderContent = () => {
+    return (isLoggedIn ?
+     <div>
+      <Header />
+      <MoviesSummary />
+      <AvailableMovies />
+    </div> 
+    : 
+    <div>
+      <Login />
     </div>
+    )
+  }
+  
+  return (
+    <React.Fragment>
+      {renderContent()}
+    </React.Fragment>
   );
 }
 
